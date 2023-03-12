@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages{
+        stage('git add'){
+            agent any
+            steps{
+                git'https://github.com/Manoxjz/game-of-life.git'
+            }
+        }
+  stage('compile'){
+      agent any
+      steps{
+          sh 'mvn compile'
+      }
+  }
+    }
+}
